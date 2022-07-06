@@ -137,8 +137,8 @@ module alu(
   wire andab,orab,addab,subab;
   and8 And (a,b,andab);
   or8  Or (a,b,orab);
-  adder8 Add (a,b,addab);
-  subtractor8 Sub (a,b,subab);
+  adder8 Add (1'b0,a,b,addab);
+  subtractor8 Sub (1'b1,a,b,subab);
   
   mux8 Mux (andab,orab,addab,subab,8'bx,8'bx,8'bx,8'bx,select,result);
   nor nor8 (zeroflag, result[0],result[1],result[2],result[3],result[4],result[5],result[6],result[7]);
